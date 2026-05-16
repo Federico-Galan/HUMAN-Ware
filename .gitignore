@@ -1,0 +1,40 @@
+# Archivos y carpetas que no deben subirse al repositorio
+
+# NetBeans project files
+nbproject/private/
+build/
+dist/
+nbbuild/
+nbdist/
+nbactions.xml
+private/
+
+# Compiled files
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.zip
+*.tar.gz
+*.rar
+
+# Logs and temporary files
+*.log
+*.tmp
+*.cache
+*.swp
+*~
+
+# IDE/editor files
+*.iml
+*.ipr
+*.iws
+.idea/
+.vscode/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
