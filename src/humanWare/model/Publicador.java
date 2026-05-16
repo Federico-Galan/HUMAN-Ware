@@ -5,6 +5,7 @@
 package humanWare.model;
 
 import java.util.Date;
+import enums.EstadoOferta;
 
 /**
  *
@@ -27,7 +28,7 @@ public class Publicador extends Empleado {
     
     
     public boolean validarOferta(OfertaLaboral oferta) {
-        // Validar que la oferta tenga todos los datos necesarios
+        
         if (oferta.getTitulo() == null || oferta.getTitulo().isEmpty()) return false;
         if (oferta.getSalarioMin() <= 0) return false;
         if (oferta.getSalarioMax() < oferta.getSalarioMin()) return false;
@@ -37,7 +38,7 @@ public class Publicador extends Empleado {
     
     public void publicarOferta(OfertaLaboral oferta) {
         if (validarOferta(oferta)) {
-            oferta.setEstado("ACTIVA");
+            oferta.setEstado(EstadoOferta.ACTIVA); 
             System.out.println("Oferta publicada: " + oferta.getTitulo());
         } else {
             System.out.println("Error: Oferta inválida para publicar");
