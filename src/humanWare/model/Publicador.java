@@ -26,7 +26,7 @@ public class Publicador extends Empleado {
     }
     
     
-   /* public boolean validarOferta(OfertaLaboral oferta) {
+    public boolean validarOferta(OfertaLaboral oferta) {
         // Validar que la oferta tenga todos los datos necesarios
         if (oferta.getTitulo() == null || oferta.getTitulo().isEmpty()) return false;
         if (oferta.getSalarioMin() <= 0) return false;
@@ -42,7 +42,9 @@ public class Publicador extends Empleado {
         } else {
             System.out.println("Error: Oferta inválida para publicar");
         }
-    }*/
-}
+    }
+    }
+
+
     
 
