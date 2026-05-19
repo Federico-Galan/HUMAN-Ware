@@ -119,6 +119,10 @@ public class OfertaLaboral {
         this.habilidadesRequeridas = habilidadesRequeridas;
     }
 
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
     // Métodos de negocio
     public void cerrar() {
         this.estado = EstadoOferta.CUBIERTA;

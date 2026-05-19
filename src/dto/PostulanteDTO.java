@@ -13,6 +13,17 @@ import humanWare.model.Titulo;
  */
 public class PostulanteDTO {
 
+    private int numeroPostulante;
+    private String email;
+
+    public int getNumeroPostulante() {
+        return numeroPostulante;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
     public Titulo getTitulo() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
