@@ -4,12 +4,15 @@
  */
 package humanWare.model;
 
+import java.util.List;
+
 public class Postulante {
     private int nroPostulante;
     private double retribucionMin;
     private String tipoJornada;
     private boolean disponibilidadViaje;
     private String vehiculo;
+    private List<Application> solicitudes;
 
     public Postulante(int nroPostulante, double retribucionMin, String tipoJornada, 
             boolean disponibilidadViaje, String vehiculo) {
