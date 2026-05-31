@@ -4,55 +4,56 @@
  */
 package humanWare.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Postulante {
-    private int nroPostulante;
-    private double retribucionMin;
-    private String tipoJornada;
-    private boolean disponibilidadViaje;
+    private String idPostulante;
+    private double retribMin;
+    private String jornada;
+    private boolean dispViajar;
     private String vehiculo;
     private List<Application> solicitudes;
 
-    public Postulante(int nroPostulante, double retribucionMin, String tipoJornada, 
-            boolean disponibilidadViaje, String vehiculo) {
-        this.nroPostulante = nroPostulante;
-        this.retribucionMin = retribucionMin;
-        this.tipoJornada = tipoJornada;
-        this.disponibilidadViaje = disponibilidadViaje;
+    public Postulante(String idPostulante, double retribMin, String jornada, 
+            boolean dispViajar, String vehiculo) {
+        this.idPostulante = idPostulante;
+        this.retribMin = retribMin;
+        this.jornada = jornada;
+        this.dispViajar = dispViajar;
         this.vehiculo = vehiculo;
     }
 
-    public int getNroPostulante() {
-        return nroPostulante;
+    public String getIdPostulante() {
+        return idPostulante;
     }
 
-    public void setNroPostulante(int nroPostulante) {
-        this.nroPostulante = nroPostulante;
+    public void setIdPostulante(String idPostulante) {
+        this.idPostulante = idPostulante;
     }
 
-    public double getRetribucionMin() {
-        return retribucionMin;
+    public double getRetribMin() {
+        return retribMin;
     }
 
-    public void setRetribucionMin(double retribucionMin) {
-        this.retribucionMin = retribucionMin;
+    public void setRetribMin(double retribMin) {
+        this.retribMin = retribMin;
     }
 
-    public String getTipoJornada() {
-        return tipoJornada;
+    public String getJornada() {
+        return jornada;
     }
 
-    public void setTipoJornada(String tipoJornada) {
-        this.tipoJornada = tipoJornada;
+    public void setJornada(String jornada) {
+        this.jornada = jornada;
     }
 
-    public boolean isDisponibilidadViaje() {
-        return disponibilidadViaje;
+    public boolean isDispViajar() {
+        return dispViajar;
     }
 
-    public void setDisponibilidadViaje(boolean disponibilidadViaje) {
-        this.disponibilidadViaje = disponibilidadViaje;
+    public void setDispViajar(boolean dispViajar) {
+        this.dispViajar = dispViajar;
     }
 
     public String getVehiculo() {
@@ -64,6 +65,14 @@ public class Postulante {
     }
     
     public String aplicarOferta(OfertaLaboral oferta){
+        if(this.solicitudes != null && this.solicitudes.size() >= 3){
+            return "ERROR!!! No se puede tener mas de 3 ofertas en simultaneo.";
+        }
+        Application nuevaSolicitud = new Application(oferta, this);
+        if (this.solicitudes == null) {
+            this.solicitudes = new ArrayList<>();
+        }
+        this.solicitudes.add(nuevaSolicitud);
         System.out.println("Oferta disponible: ");
         return oferta.getTitulo();
     }
