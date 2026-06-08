@@ -4,7 +4,6 @@
  */
 package humanWare.model;
 
-import java.util.Date;
 import enums.EstadoOferta;
 
 /**
