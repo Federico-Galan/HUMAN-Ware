@@ -22,7 +22,6 @@ public class Evaluador extends Empleado {
             }
         }
         
-        // Ordenar por puntaje (mejor a peor)
         candidatosAptos.sort((p1, p2) -> {
             int puntaje1 = oferta.calcularPuntaje(p1);
             int puntaje2 = oferta.calcularPuntaje(p2);
@@ -50,7 +49,6 @@ public class Evaluador extends Empleado {
             System.out.println("Enviando email a " + candidato.getEmail() + 
                              " - Seleccionado para: " + oferta.getTitulo());
         }
-        // Notificar a la empresa
         System.out.println("Enviando listado a la empresa: " + oferta.getEmpresa().getNombre());
     }
 }

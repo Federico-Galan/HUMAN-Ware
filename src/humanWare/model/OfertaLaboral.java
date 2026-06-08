@@ -27,14 +27,11 @@ public class OfertaLaboral {
     private EstadoOferta estado;
     private Date fechaCobertura;
 
-    // Relaciones
     private Empresa empresa;
     private OfertaTitulo tituloRequerido;
     private List<OfertaSkill> habilidadesRequeridas;
 
-    public OfertaLaboral(int idOferta, String titulo, String descripcion,
-            double salarioMin, double salarioMax,
-            TipoJornada jornada, String oficina) {
+    public OfertaLaboral(int idOferta, String titulo, String descripcion, double salarioMin, double salarioMax, TipoJornada jornada, String oficina) {
         this.idOferta = idOferta;
         this.titulo = titulo;
         this.descripcion = descripcion;
@@ -123,7 +120,6 @@ public class OfertaLaboral {
         return empresa;
     }
 
-    // Métodos de negocio
     public void cerrar() {
         this.estado = EstadoOferta.CUBIERTA;
         this.fechaCobertura = new Date();
@@ -142,12 +138,10 @@ public class OfertaLaboral {
     }
 
     public boolean esApto(PostulanteDTO postulante) {
-        // Validar título (obligatorio según regla de negocio)
         if (tituloRequerido != null && !tituloRequerido.validarTitulo(postulante.getTitulo())) {
             return false;
         }
 
-        // Validar habilidades mínimas
         for (OfertaSkill skillReq : habilidadesRequeridas) {
             int nivelPostulante = postulante.getNivelHabilidad(skillReq.obtenerSkill().getIdSkill());
             if (!skillReq.validarNivel(nivelPostulante)) {
@@ -155,12 +149,10 @@ public class OfertaLaboral {
             }
         }
 
-        // Validar retribución mínima
         if (postulante.getRetribucionMinima() > salarioMax) {
             return false;
         }
 
-        // Validar tipo de jornada
         if (postulante.getTipoJornada() != TipoJornada.AMBAS
                 && postulante.getTipoJornada() != jornada) {
             return false;

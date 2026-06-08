@@ -9,7 +9,7 @@ package humanWare.model;
  * @author  
  */
 public class OfertaSkill {
-    private int nivelMinimo;  // 1 a 5
+    private int nivelMinimo;
     private Skills skill;
 
     public OfertaSkill(int nivelMinimo, Skills skill) {

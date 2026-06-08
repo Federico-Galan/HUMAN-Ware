@@ -22,6 +22,7 @@ public class Postulante {
         this.jornada = jornada;
         this.dispViajar = dispViajar;
         this.vehiculo = vehiculo;
+        this.solicitudes = new ArrayList<>();
     }
 
     public String getIdPostulante() {
@@ -65,13 +66,10 @@ public class Postulante {
     }
     
     public String aplicarOferta(OfertaLaboral oferta){
-        if(this.solicitudes != null && this.solicitudes.size() >= 3){
+        if(this.solicitudes.size() >= 3){
             return "ERROR!!! No se puede tener mas de 3 ofertas en simultaneo.";
         }
         Application nuevaSolicitud = new Application(oferta, this);
-        if (this.solicitudes == null) {
-            this.solicitudes = new ArrayList<>();
-        }
         this.solicitudes.add(nuevaSolicitud);
         System.out.println("Oferta disponible: ");
         return oferta.getTitulo();

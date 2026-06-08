@@ -1,22 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package dto;
 
 import enums.TipoJornada;
 import humanWare.model.Titulo;
 
-/**
- *
- * @author 
- */
 public class PostulanteDTO {
-
-    private int numeroPostulante;
+    private String numeroPostulante;
     private String email;
+    private Titulo titulo;
+    private double retribucionMinima;
+    private TipoJornada tipoJornada;
 
-    public int getNumeroPostulante() {
+    public PostulanteDTO(String numeroPostulante, String email, Titulo titulo, double retribucionMinima, TipoJornada tipoJornada) {
+        this.numeroPostulante = numeroPostulante;
+        this.email = email;
+        this.titulo = titulo;
+        this.retribucionMinima = retribucionMinima;
+        this.tipoJornada = tipoJornada;
+    }
+
+    public String getNumeroPostulante() {
         return numeroPostulante;
     }
 
@@ -25,19 +27,18 @@ public class PostulanteDTO {
     }
 
     public Titulo getTitulo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public int getNivelHabilidad(int idSkill) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return titulo;
     }
 
     public double getRetribucionMinima() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return retribucionMinima;
     }
 
     public TipoJornada getTipoJornada() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return tipoJornada;
     }
-    
+
+    public int getNivelHabilidad(int idSkill) {
+        return 5; 
+    }
 }

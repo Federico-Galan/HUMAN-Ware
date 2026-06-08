@@ -26,7 +26,6 @@ public class Tarjeta {
     }
     
     public boolean validar() {
-        // Validación básica: que ningún campo sea nulo o vacío
         return numero != null && !numero.isEmpty() &&
                titular != null && !titular.isEmpty() &&
                fechaExpira != null &&
